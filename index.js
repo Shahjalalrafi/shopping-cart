@@ -38,19 +38,6 @@ crossBtn2.addEventListener('click', function() {
     crossBtn('.cart-item2','case-amount')
 })
 
-//for all crossbtn 
-function crossBtn(cartid,id) {
-    const cartItem = document.querySelector(cartid)
-    cartItem.style.display = 'none'
-
-    const subTotal = document.getElementById('sub-total').innerText
-    const mobileAmount = document.getElementById(id).innerText
-    const total = subTotal - mobileAmount
-    document.getElementById('sub-total').innerText = total
-
-    document.getElementById('total').innerText = total
-}
-
 //increase functanility
 function increase(CountId, AmountId, price) {
     const mobileCount = document.getElementById(CountId).value
@@ -90,6 +77,19 @@ function decrease(mobileCountid, mobileAmountId,price) {
     document.getElementById('total').innerText = totals
 }
 
+
+//for all crossbtn 
+function crossBtn(cartid,id) {
+    const cartItem = document.querySelector(cartid)
+    cartItem.style.display = 'none'
+
+    const subTotal = document.getElementById('sub-total').innerText
+    const mobileAmount = document.getElementById(id).innerText
+    const total = subTotal - mobileAmount
+    document.getElementById('sub-total').innerText = total
+
+    document.getElementById('total').innerText = total
+}
 
 //check-out
 
