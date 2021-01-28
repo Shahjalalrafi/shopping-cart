@@ -1,89 +1,95 @@
-//add section
+// variable
+let perMobile = 1219
+let perCase = 59
+
+//decrease mobile 
 const addMobile = document.getElementById('mobile-plus')
 addMobile.addEventListener('click', function() {
-    let perMobile = 1219
-    const mobileCount = document.getElementById('mobile-count').value
-    const mobileFloat = parseFloat(mobileCount)
-    const mobileNumber = mobileFloat + 1
-    document.getElementById('mobile-count').value = mobileNumber
-
-    // const mobileAmount = document.getElementById('mobile-amount').innerText
-    const total = perMobile * mobileNumber
-    document.getElementById('mobile-amount').innerText = total
-
-    const subtotal = document.getElementById('sub-total').innerText
-    const subtotals = parseFloat(subtotal)
-    const totals = subtotals + perMobile
-    document.getElementById('sub-total').innerText = totals
-    
-
-    document.getElementById('total').innerText = totals
+    increase('mobile-count', 'mobile-amount', perMobile)
 })
 
-//minus
-
+//decrease mobile
 const minusMobile = document.getElementById('mobile-minus')
 minusMobile.addEventListener('click', function () {
-    let perMobile = 1219
-    const mobileCount = document.getElementById('mobile-count').value
-    const mobileFloat = parseFloat(mobileCount)
-    const mobileNumber = mobileFloat -1
-    document.getElementById('mobile-count').value = mobileNumber
-    
-    const mobileAmount = document.getElementById('mobile-amount').innerText
-    const total = mobileAmount - perMobile
-    document.getElementById('mobile-amount').innerText = total
-
-    const subtotal = document.getElementById('sub-total').innerText
-    const subtotals = parseFloat(subtotal)
-    const totals = subtotals - perMobile
-    document.getElementById('sub-total').innerText = totals
-
-    document.getElementById('total').innerText = totals
+    decrease('mobile-count', 'mobile-amount',perMobile)
 })
 
-//case add
+//increase case
 const addCase = document.getElementById('case-plus')
 addCase.addEventListener('click', function() {
-    const perCase = 59
-    const caseCount = document.getElementById('case-count').value
-    const caseFloat = parseFloat(caseCount)
-    const caseNumber = caseFloat + 1
-    document.getElementById('case-count').value = caseNumber
-
-    // const caseAmount = document.getElementById('case-amount').innerText
-    const total = perCase * caseNumber
-    document.getElementById('case-amount').innerText = total
-
-    const subtotal = document.getElementById('sub-total').innerText
-    const subtotals = parseFloat(subtotal)
-    const totals = subtotals + perCase
-    document.getElementById('sub-total').innerText = totals
-
-    document.getElementById('total').innerText = totals
+    increase('case-count', 'case-amount', perCase)
 })
 
-//case minus
+//decrease case
 const minusCase = document.getElementById('case-minus')
 minusCase.addEventListener('click', function() {
-    const perCase = 59
-    const caseCount = document.getElementById('case-count').value
-    const caseFloat = parseFloat(caseCount)
-    const caseNumber = caseFloat - 1
-    document.getElementById('case-count').value = caseNumber
+    decrease('case-count', 'case-amount', perCase)
+})
 
+//cross btn mobile
+const crossBtn1 = document.getElementById('cross-btn1')
+crossBtn1.addEventListener('click', function() {
+    crossBtn('.cart-item1', 'mobile-amount')
+})
 
-    const caseAmount = document.getElementById('case-amount').innerText
-    const total = caseAmount - perCase
-    document.getElementById('case-amount').innerText = total
+//cross btn case
+const crossBtn2 = document.getElementById('cross-btn2')
+crossBtn2.addEventListener('click', function() {
+    crossBtn('.cart-item2','case-amount')
+})
+
+//for all crossbtn 
+function crossBtn(cartid,id) {
+    const cartItem = document.querySelector(cartid)
+    cartItem.style.display = 'none'
+
+    const subTotal = document.getElementById('sub-total').innerText
+    const mobileAmount = document.getElementById(id).innerText
+    const total = subTotal - mobileAmount
+    document.getElementById('sub-total').innerText = total
+
+    document.getElementById('total').innerText = total
+}
+
+//increase functanility
+function increase(CountId, AmountId, price) {
+    const mobileCount = document.getElementById(CountId).value
+    const mobileFloat = parseFloat(mobileCount)
+    const mobileNumber = mobileFloat + 1
+    document.getElementById(CountId).value = mobileNumber
+
+    const mobileAmount = document.getElementById(AmountId).innerText
+    const total = price * mobileNumber
+    document.getElementById(AmountId).innerText = total
 
     const subtotal = document.getElementById('sub-total').innerText
     const subtotals = parseFloat(subtotal)
-    const totals = subtotals - perCase
+    const totals = subtotals + price
+    document.getElementById('sub-total').innerText = totals
+    
+
+    document.getElementById('total').innerText = totals
+}
+
+//decrease Functanility
+function decrease(mobileCountid, mobileAmountId,price) {
+    const mobileCount = document.getElementById(mobileCountid).value
+    const mobileFloat = parseFloat(mobileCount)
+    const mobileNumber = mobileFloat -1
+    document.getElementById(mobileCountid).value = mobileNumber
+    
+    const mobileAmount = document.getElementById(mobileAmountId).innerText
+    const total = mobileAmount - price
+    document.getElementById(mobileAmountId).innerText = total
+
+    const subtotal = document.getElementById('sub-total').innerText
+    const subtotals = parseFloat(subtotal)
+    const totals = subtotals - price
     document.getElementById('sub-total').innerText = totals
 
     document.getElementById('total').innerText = totals
-})
+}
+
 
 //check-out
 
