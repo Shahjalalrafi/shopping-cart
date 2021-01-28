@@ -40,13 +40,13 @@ crossBtn2.addEventListener('click', function() {
 
 //increase functanility
 function increase(CountId, AmountId, price) {
-    const mobileCount = document.getElementById(CountId).value
-    const mobileFloat = parseFloat(mobileCount)
-    const mobileNumber = mobileFloat + 1
-    document.getElementById(CountId).value = mobileNumber
+    const Count = document.getElementById(CountId).value
+    const countFloat = parseFloat(Count)
+    const CountNumber = countFloat + 1
+    document.getElementById(CountId).value = CountNumber
 
-    const mobileAmount = document.getElementById(AmountId).innerText
-    const total = price * mobileNumber
+    const amount = document.getElementById(AmountId).innerText
+    const total = price * CountNumber
     document.getElementById(AmountId).innerText = total
 
     const subtotal = document.getElementById('sub-total').innerText
@@ -60,13 +60,13 @@ function increase(CountId, AmountId, price) {
 
 //decrease Functanility
 function decrease(mobileCountid, mobileAmountId,price) {
-    const mobileCount = document.getElementById(mobileCountid).value
-    const mobileFloat = parseFloat(mobileCount)
-    const mobileNumber = mobileFloat -1
-    document.getElementById(mobileCountid).value = mobileNumber
+    const productCount = document.getElementById(mobileCountid).value
+    const productFloat = parseFloat(productCount)
+    const productNumber = productFloat -1
+    document.getElementById(mobileCountid).value = productNumber
     
-    const mobileAmount = document.getElementById(mobileAmountId).innerText
-    const total = mobileAmount - price
+    const productAmount = document.getElementById(mobileAmountId).innerText
+    const total = productAmount - price
     document.getElementById(mobileAmountId).innerText = total
 
     const subtotal = document.getElementById('sub-total').innerText
